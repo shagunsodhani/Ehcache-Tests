@@ -20,14 +20,14 @@ public class Ehcache {
 		CacheConfiguration cacheConfiguration1 = new CacheConfiguration()
 													.name("dummy1")
 													.persistence(persistenceConfiguration)
-													.maxBytesLocalHeap(10, MemoryUnit.KILOBYTES)
-													.maxBytesLocalDisk(100, MemoryUnit.KILOBYTES);
+													.maxBytesLocalHeap(10000, MemoryUnit.KILOBYTES)
+													.maxBytesLocalDisk(10000, MemoryUnit.KILOBYTES);
 		
 		CacheConfiguration cacheConfiguration2 = new CacheConfiguration()
 														.name("dummy2")
 														.persistence(persistenceConfiguration)
-														.maxEntriesLocalHeap(1000)
-														.maxEntriesLocalDisk(4000);
+														.maxEntriesLocalHeap(100000)
+														.maxEntriesLocalDisk(400000);
 
 		DiskStoreConfiguration diskStoreConfigurationParameter = new DiskStoreConfiguration().path("C:\\cache-testing");
 		
