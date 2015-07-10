@@ -20,8 +20,8 @@ public class Ehcache {
 		CacheConfiguration cacheConfiguration1 = new CacheConfiguration()
 													.name("dummy1")
 													.persistence(persistenceConfiguration)
-													.maxBytesLocalHeap(200, MemoryUnit.KILOBYTES)
-													.maxBytesLocalDisk(200, MemoryUnit.KILOBYTES);
+													.maxBytesLocalHeap(100, MemoryUnit.KILOBYTES)
+													.maxBytesLocalDisk(100, MemoryUnit.KILOBYTES);
 
 		CacheConfiguration cacheConfiguration2 = new CacheConfiguration()
 														.name("dummy2")
