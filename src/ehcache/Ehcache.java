@@ -42,7 +42,7 @@ public class Ehcache {
 		cacheManager.addCache(cache2);
 		
 		for(int i=0; i<10000; i++){	
-			cache1.put(new Element(i, i*i));
+			cache1.put(new Element(i, true));
 		}
 		
 		System.out.println("Integer Insertion Done in Cache1");
@@ -66,7 +66,6 @@ public class Ehcache {
 		
 		System.out.println("Size of Disk for cache1");
 		System.out.println(cache1.calculateOnDiskSize()/1024);
-		
 		
 		
 		System.out.print("Total Number of Keys in Cache2 = ");
