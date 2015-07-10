@@ -20,9 +20,13 @@ public class Ehcache {
 		CacheConfiguration cacheConfiguration1 = new CacheConfiguration()
 													.name("dummy1")
 													.persistence(persistenceConfiguration)
-													.maxBytesLocalHeap(10000, MemoryUnit.KILOBYTES)
-													.maxBytesLocalDisk(10000, MemoryUnit.KILOBYTES);
-		
+													.maxEntriesLocalHeap(100000)
+													.maxEntriesLocalDisk(400000);
+
+//		
+//													.maxBytesLocalHeap(10000, MemoryUnit.KILOBYTES)
+//													.maxBytesLocalDisk(10000, MemoryUnit.KILOBYTES);
+//		
 		CacheConfiguration cacheConfiguration2 = new CacheConfiguration()
 														.name("dummy2")
 														.persistence(persistenceConfiguration)
@@ -59,22 +63,36 @@ public class Ehcache {
 		System.out.print("Total Number of Keys in Cache1 = ");
 		System.out.println(cache1.getSize());
 		
-		System.out.println("Size of Heap for cache1");
-		System.out.println((float)cache1.calculateInMemorySize()/1024);
+		System.out.println("Number of keys in Heap for cache2");
+		System.out.println(cache1.getMemoryStoreSize());
 		
-		System.out.println("Size of Disk for cache1");
-		System.out.println((float)cache1.calculateOnDiskSize()/1024);
+		System.out.println("Number of keys in Disk for cache2");
+		System.out.println(cache1.getDiskStoreSize());
 		
+		
+//		System.out.println("Size of Heap for cache1");
+//		System.out.println((float)cache1.calculateInMemorySize()/1024);
+//		
+//		System.out.println("Size of Disk for cache1");
+//		System.out.println((float)cache1.calculateOnDiskSize()/1024);
+//		
 		
 		System.out.print("Total Number of Keys in Cache2 = ");
 		System.out.println(cache2.getSize(		));
 		System.out.println(cache2.getKeys().size());
 		
-		System.out.println("Size of Heap for cache2");
-		System.out.println((float)cache2.calculateInMemorySize()/1024);
+		System.out.println("Number of keys in Heap for cache2");
+		System.out.println(cache2.getMemoryStoreSize());
 		
-		System.out.println("Size of Disk for cache2");
-		System.out.println((float)cache2.calculateOnDiskSize()/1024);
+		System.out.println("Number of keys in Disk for cache2");
+		System.out.println(cache2.getDiskStoreSize());
+		
+//		
+//		System.out.println("Size of Heap for cache2");
+//		System.out.println((float)cache2.calculateInMemorySize()/1024);
+//		
+//		System.out.println("Size of Disk for cache2");
+//		System.out.println((float)cache2.calculateOnDiskSize()/1024);
 		
 	}
 }
