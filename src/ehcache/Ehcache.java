@@ -20,8 +20,8 @@ public class Ehcache {
 		CacheConfiguration cacheConfiguration1 = new CacheConfiguration()
 													.name("dummy1")
 													.persistence(persistenceConfiguration)
-													.maxEntriesLocalHeap(1000)
-													.maxEntriesLocalDisk(4000);
+													.maxBytesLocalHeap(10, MemoryUnit.KILOBYTES)
+													.maxBytesLocalDisk(100, MemoryUnit.KILOBYTES);
 		
 		CacheConfiguration cacheConfiguration2 = new CacheConfiguration()
 														.name("dummy2")
@@ -42,18 +42,16 @@ public class Ehcache {
 		cacheManager.addCache(cache2);
 		
 		for(int i=0; i<10000; i++){	
-			cache1.put(new Element(i, true));
+			cache1.put(new Element(i, i));
 		}
 		
 		System.out.println("Integer Insertion Done in Cache1");
 		
-		long dummy_constant = 10000000;
-		
-		for(long i=dummy_constant; i<dummy_constant+10000; i++){
-			cache2.put(new Element(i, "string"+i));
+		for(int i=0; i<10000; i++){
+			cache2.put(new Element(i, i));
 		}
 		
-		System.out.println("Long Insertion Done in Cache2");
+		System.out.println("Integer Insertion Done in Cache2");
 		
 		System.out.println("Sleeping for 30 seconds...");
 		Thread.sleep(30000);
@@ -62,21 +60,21 @@ public class Ehcache {
 		System.out.println(cache1.getSize());
 		
 		System.out.println("Size of Heap for cache1");
-		System.out.println(cache1.calculateInMemorySize()/1024);
+		System.out.println((float)cache1.calculateInMemorySize()/1024);
 		
 		System.out.println("Size of Disk for cache1");
-		System.out.println(cache1.calculateOnDiskSize()/1024);
+		System.out.println((float)cache1.calculateOnDiskSize()/1024);
 		
 		
 		System.out.print("Total Number of Keys in Cache2 = ");
-		System.out.println(cache2.getSize());
+		System.out.println(cache2.getSize(		));
 		System.out.println(cache2.getKeys().size());
 		
 		System.out.println("Size of Heap for cache2");
-		System.out.println(cache2.calculateInMemorySize()/1024);
+		System.out.println((float)cache2.calculateInMemorySize()/1024);
 		
 		System.out.println("Size of Disk for cache2");
-		System.out.println(cache2.calculateOnDiskSize()/1024);
+		System.out.println((float)cache2.calculateOnDiskSize()/1024);
 		
 	}
 }
