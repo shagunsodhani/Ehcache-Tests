@@ -20,7 +20,7 @@ public class Ehcache {
 		CacheConfiguration cacheConfiguration1 = new CacheConfiguration()
 													.name("dummy1")
 													.persistence(persistenceConfiguration)
-													.maxEntriesLocalHeap(100000)
+													.maxEntriesLocalHeap(100)
 													.maxEntriesLocalDisk(400000);
 
 //		
@@ -30,8 +30,8 @@ public class Ehcache {
 		CacheConfiguration cacheConfiguration2 = new CacheConfiguration()
 														.name("dummy2")
 														.persistence(persistenceConfiguration)
-														.maxEntriesLocalHeap(100000)
-														.maxEntriesLocalDisk(400000);
+														.maxEntriesLocalHeap(400000)
+														.maxEntriesLocalDisk(100);
 
 		DiskStoreConfiguration diskStoreConfigurationParameter = new DiskStoreConfiguration().path("C:\\cache-testing");
 		
