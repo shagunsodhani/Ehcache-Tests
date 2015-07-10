@@ -50,7 +50,7 @@ public class Ehcache {
 		long dummy_constant = 10000000;
 		
 		for(long i=dummy_constant; i<dummy_constant+10000; i++){
-			cache2.put(new Element(i, i*i));
+			cache2.put(new Element(i, "string"+i));
 		}
 		
 		System.out.println("Long Insertion Done in Cache2");
