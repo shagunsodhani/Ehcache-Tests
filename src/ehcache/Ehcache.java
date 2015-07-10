@@ -12,7 +12,7 @@ import net.sf.ehcache.config.PersistenceConfiguration.Strategy;
 
 public class Ehcache {
 	
-	public static void main(String args[]){
+	public static void main(String args[]) throws InterruptedException{
 		
 		PersistenceConfiguration persistenceConfiguration = new PersistenceConfiguration()
 																.strategy(Strategy.LOCALTEMPSWAP);
@@ -39,7 +39,10 @@ public class Ehcache {
 		
 		System.out.println("Insertion Done");
 		
-		System.out.print("Number of Keys = ");
+		System.out.println("Sleeping for 30 seconds...");
+		Thread.sleep(30000);
+		
+		System.out.print("Total Number of Keys = ");
 		System.out.println(cache.getSize());
 		System.out.println(cache.getKeys().size());
 		
